@@ -1,14 +1,15 @@
 
 
-//import ComputerModelContainer from "./computer/ComputerModelContainer"
+import ComputerModelContainer from "./computer/ComputerModelContainer"
 
-//import SecondModelContainer from "./secondComputer/SecondModelContainer"
+import SecondModelContainer from "./secondComputer/SecondModelContainer"
 import ReactModelContainer from "./reactlogo/ReactModelContainer"
-import { i, img } from "motion/react-client"
+//import { i, img } from "motion/react-client"
 import "./services.css"
-import Counter from "./Counter";
-import { animate, stagger } from "motion";
-import { motion, useInView } from "motion/react";
+import Counter from "./Counter"
+import { useState } from "react"; 
+//import { animate, stagger } from "motion";
+import { stagger,animate, motion, useInView } from "motion/react";
 import { useRef } from "react";
 //import { useInView } from "react-intersection-observer";
 
@@ -62,6 +63,7 @@ const services=[
 },
 ];
 const Services = () => {
+  const [currentServiceId,setCurrentServiceId] = useState(1);
   const ref = useRef();
   const isInView = useInView(ref, {margin:"-200px"});
   return (
@@ -81,7 +83,8 @@ const Services = () => {
             <motion.div 
               variants={listVariants}
               className="service"
-              key={service.id}>
+              key={service.id}
+                onClick={()=>setCurrentServiceId(service.id)}>
                 <div className="serviceIcon">
                   <img src={service.img} alt="" />
                 </div>
@@ -98,9 +101,8 @@ const Services = () => {
           </div>
         </div>
         <div className="sServices right">
-        {/* <ComputerModelContainer/> */}
-       {/* <SecondModelContainer/> */}
-       <ReactModelContainer/>
+       {currentServiceId === 1 ? (<ComputerModelContainer/>): currentServiceId === 2 ? (<SecondModelContainer/>): (<ReactModelContainer/>) }
+
         </div>
     </div>
   )

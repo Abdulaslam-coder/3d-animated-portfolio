@@ -3,6 +3,7 @@ import { useInView,animate } from "motion/react";
 //import { use } from "react";
 const Counter = ({from,to,text}) => {
     const [count, setCount] = useState(from);
+
     const ref = useRef();
     const isInView = useInView(ref);
     useEffect(()=>{
@@ -13,7 +14,7 @@ const Counter = ({from,to,text}) => {
                 setCount(Math.floor(prev));
             },
         });
-        return()=> animation.cancle();
+        return()=> animation.cancel();
 
     },[isInView,from,to]);
   return (
