@@ -48,7 +48,7 @@ const hero = () => {
             className="hTitle">
                 Hey There,
                 <br/>
-                <span> I'm AbdulSalam </span>
+                <span> I&apos;m AbdulSalam </span>
             </motion.h1>
             {/* AWARDS */}
             <motion.div  variants={awardVariants}  initial="initial" animate="animate" className="awards">
@@ -139,7 +139,7 @@ const hero = () => {
                 WORDPRESS DEVELOPER
             </motion.div>
              {/* Contact Button */}
-             <motion.a href="/#contact" 
+             <motion.a href="#contact" 
              className="contactLink"
              animate={{
                 x:[200,0],
@@ -197,7 +197,7 @@ const hero = () => {
                 </Suspense>  
             </Canvas>
                 <div className="hImg">
-                    <img src="./hero.png" alt="" />
+                    <img src="/hero.png" alt="" />
                 </div>
         </div>
        

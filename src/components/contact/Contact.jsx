@@ -3,7 +3,6 @@ import "./contact.css"
 import emailjs from '@emailjs/browser';
 import {useRef,useState} from 'react';
 import { motion,useInView} from 'framer-motion'
-import { form } from "motion/react-client";
 //import { transition } from "three/examples/jsm/tsl/display/TransitionNode.js";
 
 const listVariants={
@@ -52,16 +51,17 @@ const Contact = () => {
   };
   const isInView =useInView(ref,{margin:"-200px"});
   return (
-    <div className="contact" ref={ref} onSubmit={sendEmail} >
+    <div className="contact" ref={ref}>
       <div className="cSection">
         <motion.form 
         ref={form}
         variants={listVariants}
         animate={isInView? "animate":"initial"}
+        onSubmit={sendEmail}
         >
           <motion.h1 variants={listVariants} 
           className="cTitle">
-            Let's keep in touch
+            Let&apos;s keep in touch
           </motion.h1>
           <div className="formItem">
             <label>Name</label>
